@@ -1,0 +1,137 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <section id="intro">
+        <div class="container">
+            <div class="row col-md-offset-2">
+                <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-04-05 22:04:45" itemprop="datePublished">
+          {{ article.add_time }}
+      </time>
+    |<i class="icon-tag"> </i>
+                    {% for tag in article.tag.all %}
+            <a href="https://www.iphpt.com/tags/GO/"> {{ tag.name }}</a>,
+                    {% endfor %}
+</span>
+                    <h1>{{ article.title }}</h1>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div id="jjyy"></div>
+
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+                <span style="color: #19A1F9">欢迎转载,但请附上原文地址哦,尊重原创,谢谢大家 本文地址: <a style="color: #19A1F9" href="{% url 'article_detail' article_id_again %}">{{ url_address }}</a></span>
+                <hr class="nogutter">
+            </div>
+            <nav class="pagination" role="pagination">
+                {% if left_article %}
+                                    <a class="pull-left" href="{% url 'article_detail' left_article.id %}" style="float: left;">
+                        {{ left_article.title }}
+                    </a>
+                {% endif %}
+            {% if right_article %}
+                <a class="pull-right" href="{% url 'article_detail' right_article.id %}" style="float: right;">
+                        {{ right_article.title }}
+                    </a>
+            {% endif %}
+
+            </nav>
+
+
+        </div>
+    </section>
+
+    <div class="duoshuo " style="text-align: center">
+
+
+    <div id="container"><div lang="en-US" class="gitment-container gitment-root-container"><div><div lang="en-US" class="gitment-container gitment-header-container"><span class="gitment-header-like-btn">
+    <svg class="gitment-heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 39.7l-.6-.5C11.5 28.7 8 25 8 19c0-5 4-9 9-9 4.1 0 6.4 2.3 8 4.1 1.6-1.8 3.9-4.1 8-4.1 5 0 9 4 9 9 0 6-3.5 9.7-16.4 20.2l-.6.5zM17 12c-3.9 0-7 3.1-7 7 0 5.1 3.2 8.5 15 18.1 11.8-9.6 15-13 15-18.1 0-3.9-3.1-7-7-7-3.5 0-5.4 2.1-6.9 3.8L25 17.1l-1.1-1.3C22.4 14.1 20.5 12 17 12z"></path></svg>
+    Like
+
+  </span><span>
+
+  </span><a class="gitment-header-issue-link" href="https://github.com/Yela528/xiaohei/issues/116" target="_blank">Issue Page</a></div></div><div><div lang="en-US" class="gitment-container gitment-comments-container"><div class="gitment-comments-empty">No Comment Yet</div></div></div><div><div lang="en-US" class="gitment-container gitment-editor-container">
+      <a class="gitment-editor-avatar" href="https://github.com/login/oauth/authorize?scope=public_repo&amp;redirect_uri=https%3A%2F%2Fwww.iphpt.com%2Fdetail%2F111%2F&amp;client_id=632e3a21bb0cee5e4518&amp;client_secret=8e0ac6db5b9c3174df17d34d88d7a85950ea8096" title="login with GitHub">
+              <svg class="gitment-github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 10c-8.3 0-15 6.7-15 15 0 6.6 4.3 12.2 10.3 14.2.8.1 1-.3 1-.7v-2.6c-4.2.9-5.1-2-5.1-2-.7-1.7-1.7-2.2-1.7-2.2-1.4-.9.1-.9.1-.9 1.5.1 2.3 1.5 2.3 1.5 1.3 2.3 3.5 1.6 4.4 1.2.1-1 .5-1.6 1-2-3.3-.4-6.8-1.7-6.8-7.4 0-1.6.6-3 1.5-4-.2-.4-.7-1.9.1-4 0 0 1.3-.4 4.1 1.5 1.2-.3 2.5-.5 3.8-.5 1.3 0 2.6.2 3.8.5 2.9-1.9 4.1-1.5 4.1-1.5.8 2.1.3 3.6.1 4 1 1 1.5 2.4 1.5 4 0 5.8-3.5 7-6.8 7.4.5.5 1 1.4 1 2.8v4.1c0 .4.3.9 1 .7 6-2 10.2-7.6 10.2-14.2C40 16.7 33.3 10 25 10z"></path></svg>
+            </a>
+
+    <div class="gitment-editor-main">
+      <div class="gitment-editor-header">
+        <nav class="gitment-editor-tabs">
+          <button class="gitment-editor-tab gitment-selected">Write</button>
+          <button class="gitment-editor-tab">Preview</button>
+        </nav>
+        <div class="gitment-editor-login">
+          <a class="gitment-editor-login-link" href="https://github.com/login/oauth/authorize?scope=public_repo&amp;redirect_uri=https%3A%2F%2Fwww.iphpt.com%2Fdetail%2F111%2F&amp;client_id=632e3a21bb0cee5e4518&amp;client_secret=8e0ac6db5b9c3174df17d34d88d7a85950ea8096">Login</a> with GitHub
+        </div>
+      </div>
+      <div class="gitment-editor-body">
+        <div class="gitment-editor-write-field">
+          <textarea placeholder="Leave a comment" title="Login to Comment" disabled=""></textarea>
+        </div>
+        <div class="gitment-editor-preview-field gitment-hidden">
+          <div class="gitment-editor-preview gitment-markdown"></div>
+        </div>
+      </div>
+    </div>
+    <div class="gitment-editor-footer">
+      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">
+        Styling with Markdown is supported
+      </a>
+      <button class="gitment-editor-submit" title="Login to Comment" disabled="">Comment</button>
+    </div>
+  </div></div><div><div lang="en-US" class="gitment-container gitment-footer-container">
+    Powered by
+    <a class="gitment-footer-project-link" href="https://github.com/imsun/gitment" target="_blank">
+      Gitment
+    </a>
+  </div></div></div></div>
+    <link rel="stylesheet" href="/static/css/default.css">
+        <style>
+            .gitment-container a {
+                border: none;
+            }
+            .comments {
+                margin: 60px 0 0;
+            }
+        </style>
+    <script src="/static/css/gitment.browser.js.下載"></script>
+    <script>
+
+        var gitment = new Gitment({
+            id: "111", // 可选。默认为 location.href
+
+            owner: 'Yela528',
+
+            title: "【go新手】beego关联关系的一个坑",
+            repo: 'xiaohei',
+            oauth: {
+                client_id: '632e3a21bb0cee5e4518',
+                client_secret: '8e0ac6db5b9c3174df17d34d88d7a85950ea8096',
+            },
+        })
+        gitment.render('container')
+    </script>
+    </div>
+{% endblock %}
+{% block css %}
+
+    <link rel="stylesheet" href="/static/css/atom-one-dark.css">
+    <link rel="stylesheet" href="/static/css/share.min.css">
+{% endblock %}
+{% block js %}
+    <script src="/static/js/highlight.pack.js.下載"></script>
+    <script src="/static/js/jquery.share.min.js.下載"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script>
+    var data="{{ content|safe }}";
+    $('#jjyy').html(data);
+    </script>
+{% endblock %}
+{% block hero %}
+{% endblock %}
+{% block test %}
+{% endblock %}

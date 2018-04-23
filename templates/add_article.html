@@ -1,0 +1,32 @@
+<!-- 表单写好了-->
+<form name="myForm" action="{% url 'add_article' %}" method="post">
+    标题：<input type="text" name="title" size="32">(限输入15个汉字）<br><br>
+    <textarea id="editor" placeholder="Balabala" name="content" autofocus></textarea>
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+    {% csrf_token %}
+</form>
+
+{#<div id="div1">#}
+{#    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>#}
+{#</div>#}
+
+<link rel="stylesheet" type="text/css" href="/static/css/simditor.css" />
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/module.js"></script>
+<script type="text/javascript" src="/static/js/hotkeys.js"></script>
+<script type="text/javascript" src="/static/js/uploader.js"></script>
+<script type="text/javascript" src="/static/js/simditor.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var editor = new Simditor({
+            textarea: $('#editor')
+            //optional options
+
+
+        });
+        {#alert(editor.getValue())#}
+    })
+</script>
